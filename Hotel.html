@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granada Hotel - Hotel Eksklusif Jakarta</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2);
+            overflow-x: hidden;
+        }
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSIxMDAiIHZpZXdCb3g9IjAgMCAxMjAwIDEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCwwIGwxMjAwLDAgVjEwMCBMMCAxMDAgeiIgZmlsbD0iIzAwN2JmZiIvPjxwYXRoIGQ9Ik0wLDAgQzMwMCw1MCA2MDAsNTAgMTIwMCwwIFYxMDAgTDAgMTAweiIgZmlsbD0iIzI4YTc0NSIvPjwvc3ZnPg==') repeat-x;
+            animation: wave 10s linear infinite;
+        }
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-1200px); }
+        }
+        header {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            background: linear-gradient(135deg, #007bff, #28a745);
+            overflow: hidden;
+        }
+        header h1 {
+            font-size: 4em;
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+            z-index: 2;
+        }
+        header p {
+            font-size: 1.5em;
+            margin-top: 20px;
+            z-index: 2;
+        }
+        nav {
+            background: rgba(255,255,255,0.9);
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        nav .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #007bff;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        nav ul li a i {
+            margin-right: 5px;
+        }
+        nav ul li a:hover {
+            color: #28a745;
+            transform: scale(1.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        section {
+            padding: 100px 0;
+            background-color: white;
+            position: relative;
+        }
+        section:nth-child(even) {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+        section h2 {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #007bff;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        section h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .parallax {
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-size: 2em;
+            font-weight: 600;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card h3 {
+            color: #007bff;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        .card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(40,167,69,0.4);
+        }
+        .carousel {
+            position: relative;
+            max-width: 1000px;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .slides {
+            display: flex;
+            transition: opacity 0.6s ease;
+        }
+        .slide {
+            min-width: 100%;
+            text-align: center;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            color: #495057;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .slide.active {
+            opacity: 1;
+            position: relative;
+        }
+        .slide h3 {
+            color: #007bff;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .slide p {
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+        .carousel-dots {
+            text-align: center;
+            padding: 20px;
+        }
+        .dot {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin: 0 8px;
+            background-color: #ddd;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .dot.active {
+            background-color: #007bff;
+        }
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,123,255,0.9);
+            color: white;
+            border: none;
+            padding: 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 1.5em;
+            transition: all 0.3s;
+            z-index: 5;
+        }
+        button:hover {
+            background: rgba(0,123,255,1);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .prev { left: 20px; }
+        .next { right: 20px; }
+        footer {
+            background: linear-gradient(135deg, #343a40, #495057);
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+            position: relative;
+        }
+        footer .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        footer h3 {
+            color: #ffc107;
+            margin-bottom: 20px;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        footer a:hover {
+            color: #ffc107;
+            transform: scale(1.2);
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 3em; }
+            nav .container { flex-direction: column; }
+            nav ul { margin-top: 20px; }
+            nav ul li { margin: 0 15px; }
+            section { padding: 40px 0; }
+            .grid { grid-template-columns: 1fr; }
+            .parallax { height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo"><i class="fas fa-hotel"></i> Granada Hotel</div>
+            <ul>
+                <li><a href="#tentang"><i class="fas fa-info-circle"></i> Tentang Kami</a></li>
+                <li><a href="#lowongan"><i class="fas fa-briefcase"></i> Lowongan Kerja</a></li>
+                <li><a href="#kontak"><i class="fas fa-envelope"></i> Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Granada Hotel</h1>
+        <p>Hotel Eksklusif dengan Pemandangan Pantai Ancol</p>
+        <div class="wave"></div>
+    </header>
+
+    <section id="tentang">
+        <div class="container">
+            <h2>Tentang Kami</h2>
+            <div class="parallax" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwMCIgaGVpZ2h0PSIzMDAiIHZpZXdCb3g9IjAgMCAxMjAwIDMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTJmNGY4Ii8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0iIzMzMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkhlbGxvLCBXZWxjb21lIHRvIEdyYW5hZGEgSG90ZWw8L3RleHQ+PC9zdmc+');">
+                Selamat Datang di Granada Hotel
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDUwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Ib3RlbCBSb29tPC90ZXh0Pjwvc3ZnPg==" alt="Hotel Room">
+                    <div class="card-content">
+                        <h3>200 Unit Kamar Eksklusif</h3>
+                        <p>Setiap kamar menawarkan pemandangan langsung ke Pantai Ancol dari balkon pribadi, dengan fasilitas premium dan layanan eksklusif.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDUwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5TdXBwbGllcnM8L3RleHQ+PC9zdmc+" alt="Suppliers">
+                    <div class="card-content">
+                        <h3>Pemasok Terpercaya</h3>
+                        <p>Kami bermitra dengan Apollo Mart, Pine Mart, dan Flamboyant Mart untuk memastikan kebutuhan hotel selalu berkualitas tinggi.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDUwMCAyMDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI2VlZSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZpbGw9IiM2NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5UZWFtPC90ZXh0Pjwvc3ZnPg==" alt="Team">
+                    <div class="card-content">
+                        <h3>Tim Profesional</h3>
+                        <p>Dengan 20 karyawan ahli di berbagai bidang, kami berkomitmen untuk memberikan pengalaman terbaik bagi tamu.</p>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 50px; text-align: center; font-size: 1.1em; color: #666;">
+                <strong>Alamat:</strong> Jalan Jatayu No. 112, Jakarta Utara<br>
+                <strong>Rekening Bank:</strong> Bank Politeknik, No. Rekening Giro 456643<br>
+                Transaksi kredit dengan syarat 2/10, n/30 untuk pembelian dari pemasok.
+            </p>
+        </div>
+    </section>
+
+    <section id="lowongan">
+        <div class="container">
+            <h2>Lowongan Kerja - Bergabunglah dengan Kami</h2>
+            <p style="text-align: center; margin-bottom: 50px; color: #666;">Kami sedang membuka lowongan untuk posisi-posisi berikut. Lihat detail di bawah dan lamar sekarang!</p>
+            <div class="carousel">
+                <div class="slides">
+                    <div class="slide active">
+                        <h3>Administrasi (1 Posisi)</h3>
+                        <p>Mengelola administrasi umum, dokumentasi, dan dukungan operasional. Syarat: Pengalaman administrasi, keterampilan organisasi.</p>
+                        <a href="mailto:granadaancol
